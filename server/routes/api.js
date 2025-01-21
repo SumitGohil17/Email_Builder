@@ -85,7 +85,7 @@ router.post('/uploadEmailConfig', async (req, res) => {
     }
 });
 
-router.get('/template/html/:id', async (req, res) => {
+router.get('/renderAndDownloadTemplate/:id', async (req, res) => {
     try {
         const template = await Template.findById(req.params.id);
         if (!template) {
