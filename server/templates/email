@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title|default("Email Template")}}</title>
+    <style>
+        .email-template {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: {{styles.fontFamily|default('Arial, sans-serif')}};
+        }
+        .header {
+            background: {{styles.headerBg|default('#f8f9fa')}};
+            padding: 20px;
+            text-align: center;
+        }
+        .content { 
+            padding: 20px;
+            background: #ffffff;
+        }
+        .footer { 
+            text-align: center; 
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .button {
+            background: {{styles.buttonColor|default('#007bff')}};
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        @media screen and (max-width: 600px) {
+            .email-template {
+                width: 100% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-template">
+        {% if sections %}
+            {{sections|safe}}
+        {% else %}
+            <div class="content">
+                <p>No content available</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

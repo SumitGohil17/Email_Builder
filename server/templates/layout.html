@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        .email-container {
+            position: relative;
+            min-height: 600px;
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        .image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        /* Ensure title is visible */
+        #email-title {
+            color: #333;
+            margin: 0;
+            padding: 10px 0;
+        }
+        .section {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #eee;
+        }
+        .button-section {
+            text-align: center;
+            padding: 10px 20px;
+        }
+        .text-section {
+            line-height: 1.6;
+        }
+        .image-section {
+            text-align: center;
+        }
+        .divider {
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div>
+            <h1 class="header" id="email-title">{{title}}</h1>
+        </div>
+        <div class="content" id="email-content">
+            {{sections}}
+        </div>
+    </div>
+</body>
+</html>

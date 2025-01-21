@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title>
+    <style>
+        .email-template {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: {{styles.fontFamily}};
+        }
+        .header {
+            background: {{styles.headerBg}};
+            padding: 20px;
+            text-align: center;
+        }
+        .content { padding: 20px; }
+        .footer { text-align: center; padding: 20px; }
+        .button {
+            background: {{styles.buttonColor}};
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-template">
+        {{sections}}
+    </div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Our Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            position: relative;
+        }
+        .logo-section {
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            max-width: 150px;
+            height: auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 30px 20px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4F46E5;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            margin: 20px 0;
+        }
+        .button:hover {
+            background-color: #4338CA;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #F3F4F6;
+            margin: 20px 0;
+        }
+        .feature {
+            text-align: center;
+            padding: 15px;
+        }
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #4F46E5;
+        }
+        .social-links {
+            text-align: center;
+            padding: 20px;
+            background-color: #F9FAFB;
+        }
+        .social-icon {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #4B5563;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #6B7280;
+            font-size: 0.875rem;
+        }
+        @media only screen and (max-width: 600px) {
+            .features {
+                flex-direction: column;
+            }
+            .feature {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F3F4F6;">
+    <div class="email-container">
+        <div class="logo-section">
+            {{logo}}
+        </div>
+
+        <div class="header">
+            <h1 style="margin-bottom: 15px;">Welcome to {{company_name}}!</h1>
+            <p>We're excited to have you on board</p>
+        </div>
+
+        <div class="content">
+            <h2 style="color: #1F2937; margin-bottom: 20px;">Getting Started</h2>
+            <p style="margin-bottom: 20px;">
+                Hi {{user_name}},
+            </p>
+            <p style="margin-bottom: 20px;">
+                Thank you for joining us! We're thrilled to have you as part of our community. 
+                Here are a few things you can do to get started:
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📝</div>
+                    <h3>Complete Profile</h3>
+                    <p>Add your details</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Set Goals</h3>
+                    <p>Define your objectives</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Connect</h3>
+                    <p>Join the community</p>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="{{cta_link}}" class="button">Get Started Now</a>
+            </div>
+
+            <p style="margin-top: 20px;">
+                If you have any questions, feel free to <a href="{{support_link}}" style="color: #4F46E5;">contact our support team</a>.
+            </p>
+        </div>
+
+        <div class="social-links">
+            <a href="{{twitter_url}}" class="social-icon">Twitter</a>
+            <a href="{{facebook_url}}" class="social-icon">Facebook</a>
+            <a href="{{linkedin_url}}" class="social-icon">LinkedIn</a>
+            <a href="{{instagram_url}}" class="social-icon">Instagram</a>
+        </div>
+
+        <div class="footer">
+            <p style="margin-bottom: 10px;">
+                {{company_name}} Inc. {{company_address}}
+            </p>
+            <p>
+                <a href="{{unsubscribe_link}}" style="color: #6B7280;">Unsubscribe</a> |
+                <a href="{{privacy_policy}}" style="color: #6B7280;">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
