@@ -6,13 +6,8 @@ const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
 
-const storage = multer.diskStorage({
-    destination: './uploads/',
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
-
+// Use memory storage instead of disk storage
+const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // Routes
@@ -32,18 +27,28 @@ router.get('/getEmailLayout', (req, res) => {
     }
 });
 
-router.post('/uploadImage', upload.single('image'), (req, res) => {
+router.post('/uploadImage', upload.single('image'), async (req, res) => {
     if (!req.file) {
         return res.status(400).json({ error: 'No file uploaded' });
     }
 
-    cloudinary.uploader.upload(req.file.path, { folder: 'email_images' }, (error, result) => {
-        if (error) {
-            return res.status(500).json({ error: 'Error uploading to Cloudinary', details: error.message });
-        }
-        fs.unlinkSync(req.file.path);
+    try {
+        // Convert buffer to base64
+        const b64 = Buffer.from(req.file.buffer).toString('base64');
+        const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+        
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(dataURI, { 
+            folder: 'email_images' 
+        });
+        
         res.json({ imageUrl: result.secure_url });
-    });
+    } catch (error) {
+        res.status(500).json({ 
+            error: 'Error uploading to Cloudinary', 
+            details: error.message 
+        });
+    }
 });
 
 router.post('/uploadEmailConfig', async (req, res) => {
