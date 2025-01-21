@@ -15,7 +15,7 @@ const ImageUploader = ({ onUpload }) => {
 
         setUploading(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/uploadImage', formData);
+            const response = await axios.post(`https://email-builder-backend-omega.vercel.app/api/uploadImage`, formData);
             onUpload(response.data.imageUrl);
         } catch (error) {
             console.error('Error uploading image:', error);

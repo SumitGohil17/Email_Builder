@@ -59,7 +59,7 @@ const EmailEditor = ({ templateId, onBack }) => {
 
     const fetchLayout = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/getEmailLayout');
+            const response = await axios.get(`https://email-builder-backend-omega.vercel.app/api/getEmailLayout`);
             setLayoutHtml(response.data);
         } catch (error) {
             console.error('Error fetching layout:', error);
@@ -91,7 +91,7 @@ const EmailEditor = ({ templateId, onBack }) => {
                 return;
             }
 
-            const response = await axios.post('http://localhost:5000/api/uploadEmailConfig', templateData);
+            const response = await axios.post(`https://email-builder-backend-omega.vercel.app/api/uploadEmailConfig`, templateData);
 
             if (response.data.success) {
                 alert('Template saved successfully!');
